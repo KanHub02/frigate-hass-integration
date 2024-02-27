@@ -79,3 +79,37 @@ ctags.tmp
 
 # Built docs
 docs/build
+
+#AutoVision
+venv
+.venv
+__pycache__
+output_image.jpg
+*.pth
+.vscode
+.idea
+*.png
+*.jpeg
+*.ppg
+AutoVision/.env
+*.deb
+*.pth
+*.pt
+*.jpg
+AutoVision/weights/*
+AutoVision/data
+accuracy.ipynb
+100ph
+tmp189rhmyg
+app.ipynb
+/yolox.egg-info
+/build
+AutoVision
+./pgdata
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+temp
+notebook_utils.py
+AutoVision/web/.env

@@ -16,9 +16,22 @@ cameras:
           roles:
             - detect
     detect:
-      width: 1920
-      height: 1080
-      fps: 15
+      width: 2688
+      height: 1520
+      fps: 25
+
+    record:
+      enabled: False
+      expire_interval: 10
+      retain:
+        days: 3
+        mode: all
+      events:
+        required_zones: [parking_zone]
+        retain:
+          default: 3
+          mode: all
+
     objects:
       track:
         - car
@@ -32,42 +45,8 @@ cameras:
         default: 10  # Сохранять снимки в течение 10 дней
     zones:
       parking_zone:
-        coordinates: 1458,539,921,555,953,296,1460,292
+        coordinates: 2116,397,2049,918,1407,779,1592,336
         filters:
           car:
-            min_area: 5000  # Минимальная площадь объекта для обнаружения
-            max_area: 100000  # Максимальная площадь объекта для обнаружения
-            min_score: 0.5  # Минимальный score для обнаружения
-            threshold: 0.7  # Порог для обнаружения
-
-  camera_2:
-    enabled: True
-    ffmpeg:
-      inputs:
-        - path: rtsp://admin:P@ssw0rd!23@10.118.210.112:554/Streaming/Channels/1
-          roles:
-            - detect
-    detect:
-      width: 1920
-      height: 1080
-      fps: 15
-    objects:
-      track:
-        - car
-    snapshots:
-      enabled: True
-      timestamp: True
-      bounding_box: True
-      crop: True  # Crop the snapshot to the detected object
-      required_zones: [parking_zone]  # Снимки будут создаваться только если обнаружение произошло в указанной зоне
-      retain:
-        default: 10  # Сохранять снимки в течение 10 дней
-    # zones:
-    #   parking_zone:
-    #     coordinates: 500,0,500,1080,0,1080,0,0  # Замените координатами вашей зоны
-    #     filters:
-    #       car:
-    #         min_area: 5000  # Минимальная площадь объекта для обнаружения
-    #         max_area: 100000  # Максимальная площадь объекта для обнаружения
-    #         min_score: 0.5  # Минимальный score для обнаружения
-    #         threshold: 0.7  # Порог для обнаружения
+            min_score: 0.7
+            threshold: 0.8
