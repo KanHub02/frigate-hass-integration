@@ -22,14 +22,14 @@ cameras:
 
     record:
       enabled: False
-      expire_interval: 10
+      expire_interval: 1
       retain:
         days: 3
         mode: all
       events:
         required_zones: [parking_zone]
         retain:
-          default: 3
+          default: 0.0005
           mode: all
 
     objects:
@@ -39,10 +39,10 @@ cameras:
       enabled: True
       timestamp: True
       bounding_box: True
-      crop: True  # Crop the snapshot to the detected object
-      required_zones: [parking_zone]  # Снимки будут создаваться только если обнаружение произошло в указанной зоне
+      crop: True
+      required_zones: [parking_zone]
       retain:
-        default: 10  # Сохранять снимки в течение 10 дней
+        default: 0.0005
     zones:
       parking_zone:
         coordinates: 2116,397,2049,918,1407,779,1592,336
