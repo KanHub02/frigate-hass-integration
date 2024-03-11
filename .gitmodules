@@ -1,0 +1,3 @@
+[submodule "vision-service-mqtt-handler"]
+	path = vision-service-mqtt-handler
+	url = git@github.com:KanHub02/vision-service-mqtt-handler.git
