@@ -43,23 +43,11 @@ services:
     ports:
       - "5000:5000"
 
-  web:
-    build:
-      context: ./AutoVision/
-    command: uvicorn AutoVision.manage:app --host 0.0.0.0 --port 8989 --reload
-    volumes:
-      - .:/usr/src/app
-    ports:
-      - "8989:8989"
-
-  postgres:
-    image: postgres:14.7
-    expose:
-      - "5432"
-    volumes:
-      - ./pgdata:/var/lib/postgresql/data/
-    env_file: ./AutoVision/web/.env
-    restart: always
+  vision_service_mqtt:
+    extends:
+      file: ./vision-service-mqtt-handler/docker-compose.yml
+      service: vision_service_cpu
+    env_file: .env
 
   mqtt:
     image: eclipse-mosquitto:1.6
