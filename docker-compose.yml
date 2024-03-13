@@ -48,6 +48,8 @@ services:
       file: ./vision-service-mqtt-handler/docker-compose.yml
       service: vision_service_cpu
     env_file: .env
+    depends_on:
+      - mqtt
 
   mqtt:
     image: eclipse-mosquitto:1.6

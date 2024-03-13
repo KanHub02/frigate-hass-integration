@@ -27,7 +27,8 @@ cameras:
         days: 3
         mode: all
       events:
-        required_zones: [parking_zone]
+        required_zones:
+          - parking_zone
         retain:
           default: 0.0005
           mode: all
@@ -44,9 +45,11 @@ cameras:
       retain:
         default: 0.0005
     zones:
+      road_across:
+        coordinates: 1496,293,1935,387,1980,265,1578,208
+        objects:
+          - car
       parking_zone:
-        coordinates: 2116,397,2049,918,1407,779,1592,336
-        filters:
-          car:
-            min_score: 0.7
-            threshold: 0.8
+        coordinates: 1385,787,1980,852,1924,359,1479,259
+        objects:
+          - car
